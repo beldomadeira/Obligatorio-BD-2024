@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql-escuela-nieve
+    environment:
+      MYSQL_ROOT_PASSWORD: TuContraseñaSegura
+      MYSQL_DATABASE: EscuelaDeportesNieve
+    ports:
+      - "3306:3306"
+    networks:
+      - escuela_nieve_net
+
+networks:
+  escuela_nieve_net:
+    driver: bridge
