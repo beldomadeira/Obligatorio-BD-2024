@@ -1,0 +1,34 @@
+.reportes-view {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #333;
+}
+
+.reportes-view h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reportes-view section {
+    margin-bottom: 30px;
+}
+
+.reportes-view h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.reportes-view ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.reportes-view li {
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

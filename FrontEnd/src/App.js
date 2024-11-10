@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomeView from './views/Home/HomeView';
+import AlumnosView from './views/Alumnos/AlumnosView';
+import ClasesView from './views/Clases/ClasesView';
+import ReportesView from './views/Reportes/ReportesView';
+import ActividadesView from './views/Actividades/ActividadesView';
+import InstructoresView from './views/Instructores/InstructoresView';
+import TurnosView from './views/Turnos/TurnosView';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+          <Route path="/alumnos" element={<AlumnosView />} />
+          <Route path="/clases" element={<ClasesView />} />
+          <Route path="/reportes" element={<ReportesView />} />
+          <Route path="/actividades" element={<ActividadesView />} />
+          <Route path="/instructores" element={<InstructoresView />} />
+          <Route path="/turnos" element={<TurnosView />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
