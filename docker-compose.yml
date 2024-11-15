@@ -1,9 +1,10 @@
-version: '3.8'
+version: "3.8"
 
 services:
   db:
-    image: mysql:latest
+    image: mysql:8.0.37
     container_name: mysql-escuela-nieve
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       MYSQL_ROOT_PASSWORD: "123456789"
       MYSQL_DATABASE: escuelaDeportesNieve
@@ -11,10 +12,6 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./database/data.sql:/docker-entrypoint-initdb.d/1_data.sql 
-      - ./database/escueladeportesnieve.sql:/docker-entrypoint-initdb.d/2_escueladeportesnieve.sql 
-    networks:
-      - escuela_nieve_net
 
   backend:
     build: ./Backend
@@ -25,25 +22,17 @@ services:
       DB_PASSWORD: "123456789"
       DB_NAME: escuelaDeportesNieve
     ports:
-      - "5001:5001" 
+      - "5001:5001"
     depends_on:
       - db
-    networks:
-      - escuela_nieve_net
 
   frontend:
     build: ./FrontEnd
     container_name: frontend-escuela-nieve
     ports:
-      - "3000:3000"  
+      - "3000:3000"
     depends_on:
       - backend
-    networks:
-      - escuela_nieve_net
-
-networks:
-  escuela_nieve_net:
-    driver: bridge
 
 volumes:
   mysql_data:
