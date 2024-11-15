@@ -5,8 +5,8 @@ services:
     image: mysql:latest
     container_name: mysql-escuela-nieve
     environment:
-      MYSQL_ROOT_PASSWORD: TuContraseñaSegura
-      MYSQL_DATABASE: EscuelaDeportesNieve
+      MYSQL_ROOT_PASSWORD: "123456789"
+      MYSQL_DATABASE: escuelaDeportesNieve
     ports:
       - "3306:3306"
     networks:
