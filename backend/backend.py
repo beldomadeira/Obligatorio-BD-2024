@@ -20,4 +20,11 @@ app.register_blueprint(actividades_bp, url_prefix='/api')
 app.register_blueprint(clase_bp, url_prefix='/api')
 app.register_blueprint(reporte_bp, url_prefix='/api')
 
+@app.route("/ping")
+def ping():
+    return "pong", 200
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5001)
+
 app.run()

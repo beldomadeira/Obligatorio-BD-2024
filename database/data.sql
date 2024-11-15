@@ -1,46 +1,45 @@
 -- Creación de la base de datos
-CREATE DATABASE IF NOT EXISTS EscuelaDeportesNieve;
-USE EscuelaDeportesNieve;
+CREATE DATABASE IF NOT EXISTS escuelaDeportesNieve
+USE escuelaDeportesNieve;
 
 -- Tabla login
-CREATE TABLE login (
+CREATE TABLE IF NOT EXISTS login (
     correo VARCHAR(100) PRIMARY KEY,
     contraseña VARCHAR(255) NOT NULL
 );
 
 -- Tabla actividades
-CREATE TABLE actividades (
+CREATE TABLE IF NOT EXISTS actividades (
     id INT AUTO_INCREMENT PRIMARY KEY,
     descripcion VARCHAR(100) NOT NULL,
     costo DECIMAL(10, 2) NOT NULL
 );
 
 -- Tabla equipamiento
-CREATE TABLE equipamiento (
+CREATE TABLE IF NOT EXISTS equipamiento (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_actividad INT,
     descripcion VARCHAR(100) NOT NULL,
     costo DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (id_actividad) REFERENCES actividades(id)
+    FOREIGN KEY (id_actividad) REFERENCES actividades(id) ON DELETE CASCADE
 );
 
 -- Tabla instructores
-CREATE TABLE instructores (
+CREATE TABLE IF NOT EXISTS instructores (
     ci CHAR(8) PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL
 );
 
 -- Tabla turnos
-CREATE TABLE turnos (
+CREATE TABLE IF NOT EXISTS turnos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     hora_inicio INT NOT NULL,
     hora_fin INT NOT NULL
 );
 
-
 -- Tabla alumnos
-CREATE TABLE alumnos (
+CREATE TABLE IF NOT EXISTS alumnos (
     ci CHAR(8) PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
@@ -50,7 +49,7 @@ CREATE TABLE alumnos (
 );
 
 -- Tabla clase
-CREATE TABLE clase (
+CREATE TABLE IF NOT EXISTS clase (
     id INT AUTO_INCREMENT PRIMARY KEY,
     ci_instructor CHAR(8),
     id_actividad INT,
@@ -62,7 +61,7 @@ CREATE TABLE clase (
 );
 
 -- Tabla alumno_clase
-CREATE TABLE alumno_clase (
+CREATE TABLE IF NOT EXISTS alumno_clase (
     id_clase INT,
     ci_alumno CHAR(8),
     id_equipamiento INT,

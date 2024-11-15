@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql-escuela-nieve
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456789"
+      MYSQL_DATABASE: escuelaDeportesNieve
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/data.sql:/docker-entrypoint-initdb.d/1_data.sql  # Carga las tablas primero
+      - ./database/escueladeportesnieve.sql:/docker-entrypoint-initdb.d/2_escueladeportesnieve.sql  # Carga los datos después
+    networks:
+      - escuela_nieve_net
+
+  backend:
+    build: ./Backend
+    container_name: backend-escuela-nieve
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: "123456789"
+      DB_NAME: escuelaDeportesNieve
+    ports:
+      - "5001:5001"  # Expone el backend en el puerto 5001
+    depends_on:
+      - db
+    networks:
+      - escuela_nieve_net
+
+  frontend:
+    build: ./FrontEnd
+    container_name: frontend-escuela-nieve
+    ports:
+      - "3000:3000"  # Expone el frontend en el puerto 3000
+    depends_on:
+      - backend
+    networks:
+      - escuela_nieve_net
+
+networks:
+  escuela_nieve_net:
+    driver: bridge
+
+volumes:
+  mysql_data:
