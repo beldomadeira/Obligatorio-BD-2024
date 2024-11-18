@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:5000/api/clases';
+const API_URL = 'https://xljt8pjs-5001.brs.devtunnels.ms/api/clases';
 
 // Obtener todas las clases
 export const getClases = async () => {

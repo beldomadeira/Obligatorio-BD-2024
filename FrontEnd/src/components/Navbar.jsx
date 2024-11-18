@@ -5,7 +5,7 @@ import './Navbar.css';
 function Navbar() {
     return (
         <nav className="navbar">
-            <h2 className="navbar-logo">Escuela de Deportes de Nieve</h2>
+            <h2 className="navbar-logo" onClick={() => { window.location.href = '/'; }}>Escuela de Deportes de Nieve</h2>
             <ul className="navbar-links">
                 <li><Link to="/">Inicio</Link></li>
                 <li><Link to="/alumnos">Alumnos</Link></li>

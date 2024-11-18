@@ -61,3 +61,70 @@
 .alumno-item button:hover {
     background-color: #c82333;
 }
+.alumno-table {
+    justify-self: center;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.alumno-table th, .alumno-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+    text-align: -webkit-center;
+    
+}
+
+.alumno-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.alumno-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.alumno-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.create-button{
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.alumno-table button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.alumno-table button:first-child {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.alumno-table button:first-child:hover {
+    background-color: #e0a800;
+}
+
+.alumno-table button:last-child {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.alumno-table button:last-child:hover {
+    background-color: #c82333;
+}
+.Button-container{
+    display: flex;
+}

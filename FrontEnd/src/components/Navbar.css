@@ -12,6 +12,7 @@
     font-weight: bold;
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .navbar-links {
