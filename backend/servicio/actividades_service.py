@@ -1,3 +1,4 @@
+from flask import jsonify
 from db_connection import get_db_connection
 
 class ActividadesService:
@@ -19,6 +20,10 @@ class ActividadesService:
         """
         Consulta una actividad específica por su ID.
         """
+        #! validar id como entero antes de continuar
+        if(type(id) != int):
+            return jsonify({"error": "ID no válido"}), 400
+        
         connection = get_db_connection()
         cursor = connection.cursor(dictionary=True)
         cursor.execute("SELECT * FROM actividades WHERE id = %s", (id,))

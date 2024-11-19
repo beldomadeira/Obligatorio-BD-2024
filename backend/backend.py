@@ -1,17 +1,18 @@
 from flask import Flask
 from db_connection import get_db_connection
 from config import config
-from flask_cors import CORS
 from controller.instructores_controller import instructor_bp
 from controller.turnos_controller import turnos_bp
 from controller.alumnos_controller import alumnos_bp
 from controller.actividades_controller import actividades_bp
 from controller.clase_controller import clase_bp
 from controller.reporte_controller import reporte_bp
+from flask_cors import CORS
 # instalar mysql-connector-python en lugar de mysql-connector
 
 app= Flask(__name__)
-CORS(app)
+CORS(app,
+    origins='https://basededatos-38cb7.web.app',)
 
 app.register_blueprint(instructor_bp, url_prefix='/api')
 app.register_blueprint(turnos_bp,url_prefix='/api')

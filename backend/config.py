@@ -1,5 +1,5 @@
 class config:
     DB_HOST='localhost'
-    DB_USER='root'
-    DB_PASSWORD='123456789'
-    DB_NAME='escuelaDeportesNieve'
+    DB_USER='diego'
+    DB_PASSWORD='root'
+    DB_NAME='escueladeportesnieve'
