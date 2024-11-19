@@ -14,6 +14,7 @@ class ReporteService:
             JOIN equipamiento e ON a.id = e.id_actividad
             GROUP BY a.id, a.descripcion
             ORDER BY total_ingresos DESC
+            limit 5
         """
         cursor.execute(query)
         actividades = cursor.fetchall()
@@ -35,6 +36,7 @@ class ReporteService:
             JOIN alumno_clase ac ON c.id = ac.id_clase
             GROUP BY a.id, a.descripcion
             ORDER BY total_alumnos DESC
+            limit 5
         """
         cursor.execute(query)
         actividades = cursor.fetchall()
@@ -56,6 +58,7 @@ class ReporteService:
             WHERE c.dictada = TRUE
             GROUP BY t.id, t.hora_inicio, t.hora_fin
             ORDER BY total_clases_dictadas DESC
+            limit 5
         """
         cursor.execute(query)
         turnos = cursor.fetchall()
