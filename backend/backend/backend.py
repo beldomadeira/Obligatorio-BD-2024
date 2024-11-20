@@ -12,7 +12,7 @@ from flask_cors import CORS
 
 app= Flask(__name__)
 CORS(app,
-     origins='https://basededatos-38cb7.web.app',)
+     origins=["https://basededatos-38cb7.web.app","http://localhost:3000"])
 
 app.register_blueprint(instructor_bp, url_prefix='/api')
 app.register_blueprint(turnos_bp,url_prefix='/api')
